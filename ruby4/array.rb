@@ -7,7 +7,19 @@
 # puts a.first
 # puts a.first(2)
 
-a = [1,2,3]
+# a = [1,2,3]
+# b = [3,4,5]
+# puts a | b #和集合：２つの配列の要素を全て集め、重複しないように返す
+# puts a - b #差集合：左の配列から、右の配列に含まれる要素を取り除く
+# puts a & b #積集合：２つの配列の共通要素を返す
+#Setクラスを使う方が効率的
+# require 'set'
+# a = Set.new([1,2,3])
+# b = Set.new([3,4,5])
+# puts a | b
+# puts a - b
+# puts a & b
+
 
 #戻り値を配列のまま受け取る
 # quo_rem = 14.divmod(3)
