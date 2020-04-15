@@ -14,7 +14,7 @@
 #"偽"であれば配列に削除せず、そのまま残す
 
 # numbers = [1, 2, 3, 4]
-# sum = 0
+# sum = 0 #sumはブロック外部で定義されているので、ブロックの内外問わず使える
 # numbers.each do |n|
 #   sum_value = n.even? ? n * 10 : n
 #   sum += sum_value #sum=sum+sum_value
@@ -25,6 +25,7 @@
 # numbers = [1,2,3,4,5]
 # new_numbers = []#新しい配列
 # numbers.each { |n| new_numbers << n * 10 }#numbersの値を１０倍してnew_numbersという新たな配列に返す
+# new_numbers = numbers.map { |n| n * 10 } #mapメソッドの適用
 # puts new_numbers
 
 #select/find_all
@@ -48,6 +49,64 @@
 # puts even_number
 
 #inject/reduce
-numbers = [1,2,3,4]
-sum = numbers.inject(0) { |result, n| result + n }
-puts sum
+# numbers = [1,2,3,4]
+# sum = numbers.inject(0) { |result, n| result + n }
+# puts sum
+
+#each_with_index
+# fruits = ['apple', 'orange', 'melon']
+#ブロック引数のiには、0,1,2...と要素の添え字が入る
+# fruits.each_with_index { |fruit, i| puts "#{i}: #{fruit}"}
+#添え字を０以外（今回は１）から始める
+# fruits.each.with_index(1) { |fruit, i| puts "#{i}: #{fruit}"}
+
+#with_indexメソッド
+#mapメソッド＋with_indexメソッド
+# fruits = ['apple', 'orange', 'melon']
+# mapとして処理しつつ、添え字も受け取る
+# fruits.map.with_index { |fruit, i| puts "#{i}: #{fruit}"}
+
+#delete_if + with_index
+# fruits = ['apple', 'orange', 'melon']
+#名前に"a"を含み、かつ添え字が奇数である要素を削除
+# fruits.delete_if.with_index { |fruit, i| fruit.include?('a') && i.odd? }
+# puts fruits
+
+#配列がブロック引数に渡される場合
+# dimentions = [
+#   #[縦, 横]
+#   [10, 20],
+#   [30, 40],
+#   [50, 60],
+# ]
+#面積の計算結果を格納する配列
+# areas = []
+#ブロック引数が1個であれば、ブロック引数の値が配列になる
+# dimentions.each do |d|
+#   length = d[0]
+#   width = d[1]
+#ブロック引数を２つにし、縦と横の値を別々に受け取ることができる（簡略化）
+# dimentions.each do |length, width|
+#   areas << length * width
+# end
+# puts areas
+
+# each_with_indexのように元からブロック引数を２つ受け取る場合
+dimentions = [
+    #[縦, 横]
+    [10, 20],
+    [30, 40],
+    [50, 60],
+]
+# dimentions.each_with_index do |length, width, i|
+#   puts "length: #{length}, width: #{width}, i: #{i}"
+# end
+#これだとlengthに配列が丸ごと入っており、ブロック引数の割り当てにズレが発生=>ブロック引数を２つにする
+# dimentions.each_with_index do |dimention, i|
+#   #配列から縦と横の値を取り出す
+#   length = dimention[0]
+#   width = dimention[1]
+#一気にブロック引数で受け取る
+dimentions.each_with_index do |(length, width), i|
+  puts "length: #{length}, width: #{width}, i: #{i}"
+end

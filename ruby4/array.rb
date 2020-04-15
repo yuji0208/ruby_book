@@ -20,6 +20,15 @@
 # puts a - b
 # puts a & b
 
+#メソッドの可変長引数
+#引数として渡された人名の全員に挨拶するメソッド
+# def greeting(*names)
+#   "#{names.join('と')}、 こんにちは！"
+# end
+# puts greeting ('田中さん')
+
+
+
 
 #戻り値を配列のまま受け取る
 # quo_rem = 14.divmod(3)
