@@ -1,6 +1,5 @@
 # ハッシュについてもっと詳しく p162~p168
 
-
 # currencies = { japan: 'yen', us: 'dollar', india: 'rupee' }
 
 # keys：ハッシュのキーを配列として返す
@@ -31,11 +30,11 @@
 # end
 # buy_burger({'drink' => true, 'potato' => false}, 'fish')
 
-# to_aメソッド
+# to_aメソッド:ハッシュ => 配列
 # currencies = { japan: 'yen', us: 'dollar', india: 'rupee'}
 # puts currencies.to_a =>[[:japan, "yen"], [:us, "dollar"], [:india, "rupee"]]
 
-# to_hメソッド
+# to_hメソッド: 配列 => ハッシュ
 # array = [[:japan, "yen"], [:us, "dollar"], [:india, "rupee"]]
 # puts array.to_h => {:japan => "yen", :us => "dollar", :india => "rupee"}
 
